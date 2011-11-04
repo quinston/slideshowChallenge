@@ -55,7 +55,7 @@ $(document).ready( function() {
 	var allImages = $('#bodyContent .thumbimage');
 	// TODO: Make an unordered list of every thumbnail
 	$('#thumbStrip').append('<li></li>');
-	$('#thumbStrip').append(allImages.eq(0));
+	$('#thumbStrip').append(allImages.eq(0).clone());
 	
 	//keeps it smack dab in the viewport
 	darkness.css('position', 'fixed');
