@@ -18,27 +18,31 @@ This program is free software: you can redistribute it and/or modify
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
 
 function setBigImage(thumbnail) {
 	currentImage = thumbnail;
 	var thumbnailURI = thumbnail.attr('src');
  
-	//Breakup of thumbnail URIs:
+	// Breakup of thumbnail URIs:
 	//
-	//AAAAAAAAAAAAAAAAAAAA/thumb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/image.jpg/123px-image.jpg
+	// AAAAAAAAAAAAAAAAAAAA/thumb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/image.jpg/123px-image.jpg
 	//
-	//where 123px is the thumbnail height. Removing /thumb/ and the /123px... gives us a URI to the fullsize image.
+	// where 123px is the thumbnail height. Removing /thumb/ and the /123px... gives us a URI to the fullsize image.
 
+	//get the full size image's URI
 	var fullImageURI = thumbnailURI.substr( 0, thumbnailURI.search(/thumb\//i) ) + thumbnailURI.substr( thumbnailURI.search(/thumb\//i) + 'thumb/'.length, thumbnailURI.search(/\/\d+px/i) -  thumbnailURI.search(/thumb\//i) - 'thumb/'.length );
-	$('#bigImage').attr('src',fullImageURI); //put the full sized image in the centre
+	//put the full size image into the centre	
+	$('#bigImage').attr('src',fullImageURI); 
 }
 
 $(document).ready( function() {
+	//create a variable of the new element for easy access
 	var darkness = $('<div id="darknessBox"><a id="closeText">Close</a><img id="bigImage"/><ul id="thumbStrip"></ul></div>');
+	
 	$('body').append(darkness);
 
-	var currentImage = null;
-
+	// make a dark translucent box
 	darkness.css('background-color', 'rgba(51,51,51,0.8)');
 	darkness.css('display', 'block'); 
 	darkness.css('width', $(window).width());
@@ -47,7 +51,9 @@ $(document).ready( function() {
 	darkness.css('overflow','visible');
 	darkness.offset({top: 0, left: 0});
 
+	// get a list of every thumbnail in the article
 	var allImages = $('#bodyContent .thumbimage');
+	// TODO: Make an unordered list of every thumbnail
 	$('#thumbStrip').append('<li></li>');
 	$('#thumbStrip').append(allImages.eq(0));
 	
@@ -66,24 +72,29 @@ $(document).ready( function() {
 	//hide until called for
 	darkness.hide();
 
-	$('div.magnify a').attr('href','');
+	//disable the standard image magnify links
+	$('div.magnify a').attr('href',''); 
 
-		$('div.magnify a').click(function(e) { 
+	$('div.magnify a').click(function(e) { 
 		e.preventDefault();
 
 		var thumbnail = $(this).parents('.thumbinner').find('img.thumbimage');
 		setBigImage(thumbnail);
 
-		darkness.show(100); // everything is ready, show it.
-		$('body').css('overflow','hidden'); // disable outside scrollbar
+		//everything is ready. showtime!
+		darkness.fadeIn(100); 
+		//disable outer scrollbar
+		$('body').css('overflow','hidden'); 
 		return false;
 	});
 
-	$(window).resize(function(e) {
+	// automatically resize #darknessBox with the size of the viewport
+	$(window).resize(function(e) {		
 		darkness.css('width', $(window).width());
 		darkness.css('height', $(window).height());
 	});
 
+	// close text. soon to be a nice green button.
 	$('#closeText').css('color','white');
 	$('#closeText').css('float','right');
 	$('#closeText').click(function() {
@@ -91,6 +102,7 @@ $(document).ready( function() {
 		$('body').css('overflow','auto');
 	});
 
+	// change images with scroll
 	$('#bigImage').scroll(function(e) {
 		e.preventDefault();
 		//find the index of the current thumbnail and increment it and check if it is out of bounds 
