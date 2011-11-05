@@ -76,7 +76,7 @@ $(document).ready( function() {
 	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
 	$('#thumbStrip').css('max-height','10%');
-	$('#thumbStrip').css('max-width','100000000000em');
+	$('#thumbStrip').css('width','1000em');
 
 	
 	//keeps it smack dab in the viewport
