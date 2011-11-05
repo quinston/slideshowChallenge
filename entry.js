@@ -85,7 +85,7 @@ $(document).ready( function() {
 	
 	// change the image by clicking on a thumbnail
 	$('#thumbStrip li img').click(function() {
-		var i = $('#thumbStrip img').index($this);
+		var i = $('#thumbStrip img').index($(this));
 		setBigImage(allImages.eq(i));
 	});
 
