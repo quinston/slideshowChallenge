@@ -42,7 +42,7 @@ $(document).ready( function() {
 	}
 	
 	//create a variable of the new element for easy access
-	var darkness = $('<div id="darknessBox"><a id="closeText">Close</a><img id="bigImage"/><ul id="thumbStrip"></ul></div>');
+	var darkness = $('<div id="darknessBox"><a id="closeText">Close</a><img id="bigImage"/><div id="listContainer"><ul id="thumbStrip"></ul></div></div>');
 	
 	$('body').append(darkness);
 
@@ -72,15 +72,14 @@ $(document).ready( function() {
 	$('#thumbStrip li').css('display','inline-block');
 	$('#thumbStrip li img').css('height','100%');
 	$('#thumbStrip li img').css('vertical-align','top');	
-	$('#thumbStrip li').css('border','5px 0x555 solid');
+	$('#thumbStrip li').css('border','5px solid 0x555');
 	$('#thumbStrip li').css('margin','0 0.1em');
-	$('#thumbStrip').css('display','block');
-	$('#thumbStrip').css('overflow','scroll');
-	$('#thumbStrip').css('position','absolute');
-	$('#thumbStrip').css('top','82%');
-	$('#thumbStrip').css('left','0%');
-	$('#thumbStrip').css('height','17%');
-	$('#thumbStrip').css('width','1000%');
+	$('#listContainer').css('overflow','scroll');
+	$('#listContainer').css('position','absolute');
+	$('#listContainer').css('top','82%');
+	$('#listContainer').css('left','0%');
+	$('#listContainer').css('height','17%');
+	$('#listContainer').css('width','1000%');
 
 	
 	//keeps it smack dab in the viewport
