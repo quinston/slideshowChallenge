@@ -63,7 +63,7 @@ $(document).ready( function() {
 	// filmstrip of thumbnails for selection
 	allImages.each(function() {
 		var currentListItem = $('<li></li>');
-		$('#thumbStrip').append)(currentListItem);
+		$('#thumbStrip').append(currentListItem);
 		currentListItem.append($(this).clone());
 	});
 	//style the filmstrip
