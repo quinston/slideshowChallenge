@@ -65,14 +65,18 @@ $(document).ready( function() {
 		var currentListItem = $('<li></li>');
 		$('#thumbStrip').append(currentListItem);
 		currentListItem.append($(this).clone());
+		currentListItem.find('img').attr('width','');
+		currentListItem.find('img').attr('height','');		
 	});
 	//style the filmstrip
 	$('#thumbStrip li').css('display','inline-block');
-	$('#thumbStrip li img').css('height','100%');
+
+	$('#thumbStrip li img').css('height','3em');
+	$('#thumbStrip li img').css('width','3em');
 	$('#thumbStrip li img').css('vertical-align','top');	
 	$('#thumbStrip li').css('border','5px solid 0x555');
 	$('#thumbStrip li').css('margin','0 0.1em');
-	$('#listContainer').css('overflow','scroll');
+	$('#listContainer').css('overflow','auto');
 	$('#listContainer').css('position','absolute');
 	$('#listContainer').css('top','82%');
 	$('#listContainer').css('left','0%');
