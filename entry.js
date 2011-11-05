@@ -21,6 +21,8 @@ This program is free software: you can redistribute it and/or modify
 
 $(document).ready( function() {
 	"use strict";
+	
+	$('head').append('<link rel="stylesheet" href="entry.css" type="text/css" />');
 
 	var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
 
@@ -52,12 +54,8 @@ $(document).ready( function() {
 	$('body').append(darkness);
 
 	// make a dark translucent box
-	darkness.css('background-color', 'rgba(51,51,51,0.8)');
-	darkness.css('display', 'block'); 
 	darkness.css('width', $(window).width());
 	darkness.css('height', $(window).height());
-	darkness.css('z-index', 999999999);
-	darkness.css('overflow','visible');
 	darkness.offset({top: 0, left: 0});
 
 	// get a list of every thumbnail in the article
@@ -73,39 +71,12 @@ $(document).ready( function() {
 		currentListItem.find('img').attr('width','');
 		currentListItem.find('img').attr('height','');		
 	});
-	//style the filmstrip
-	$('#thumbStrip li').css('display','inline-block');
-
-	$('#thumbStrip li img').css('height','3em');
-	$('#thumbStrip li img').css('width','3em');
-	$('#thumbStrip li img').css('vertical-align','top');	
-	$('#thumbStrip li').css('border','0.5em solid 0x555');
-	$('#thumbStrip li').css('margin','0 0.1em');
-	$('#listContainer').css('overflow','auto');
-	$('#listContainer').css('position','absolute');
-	$('#listContainer').css('top','82%');
-	$('#listContainer').css('left','0%');
-	$('#listContainer').css('height','17%');
-	$('#listContainer').css('width','110%');
 	
 	// change the image by clicking on a thumbnail
 	$('#thumbStrip li img').click(function() {
 		var i = $('#thumbStrip img').index($(this));
 		setBigImage(allImages.eq(i));
 	});
-
-	
-	//keeps it smack dab in the viewport
-	darkness.css('position', 'fixed');
-	darkness.css('top',0);
-
-	//the image frame
-	//maximum size for the image frame
-	$('#bigImage').css('height', '61%');
-	$('#bigImage').css('display','block');
-	$('#bigImage').css('position','relative');
-	$('#bigImage').css('top','19%');
-	$('#bigImage').css('margin','0 auto');
 
 	//hide until called for
 	darkness.hide();
@@ -132,9 +103,6 @@ $(document).ready( function() {
 		darkness.css('height', $(window).height());
 	});
 
-	// close text. soon to be a nice green button.
-	$('#closeText').css('color','white');
-	$('#closeText').css('float','right');
 	$('#closeText').click(function() {
 		darkness.fadeOut(200);
 		$('body').css('overflow','auto');
