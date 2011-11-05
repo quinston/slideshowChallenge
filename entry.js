@@ -25,6 +25,9 @@ $(document).ready( function() {
 	$('head').append('<link rel="stylesheet" href="https://raw.github.com/quinston/slideshowChallenge/master/entry.css" type="text/css" />');
 
 	var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
+	// get a list of every thumbnail in the article
+	// the second search condition is for some div's that hold multiple images
+	var allImages = $('#bodyContent img.thumbimage, #bodyContent div.thumbimage img');
 
 	// given the jquery object thumbnail pointing to a <img>, set the current image to be shown
 	function setBigImage(thumbnail) {
@@ -57,11 +60,6 @@ $(document).ready( function() {
 	darkness.css('width', $(window).width());
 	darkness.css('height', $(window).height());
 	darkness.offset({top: 0, left: 0});
-
-	// get a list of every thumbnail in the article
-	// the second search condition is for some div's that hold multiple images
-	var allImages = $('#bodyContent img.thumbimage, #bodyContent div.thumbimage img');
-
 
 	// filmstrip of thumbnails for selection
 	allImages.each(function() {
