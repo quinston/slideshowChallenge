@@ -115,6 +115,7 @@ $(document).ready( function() {
 		return false;
 	});
 	
-	$('head').append('<link rel="stylesheet" href="https://raw.github.com/quinston/slideshowChallenge/master/entry.css" type="text/css" />');	
+	var stylesheetLink = $('<link rel="stylesheet" href="https://raw.github.com/quinston/slideshowChallenge/master/entry.css" type="text/css" />');
+	$('head').append(stylesheetLink);	
 }); //ends .ready
 
