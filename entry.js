@@ -75,8 +75,8 @@ $(document).ready( function() {
 	$('#thumbStrip').css('overflow','scroll');
 	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
-	$('#thumbStrip').css('max-height','10%');
-	$('#thumbStrip').css('width','1000em');
+	$('#thumbStrip').css('height','10%');
+	$('#thumbStrip').css('width','150%');
 
 	
 	//keeps it smack dab in the viewport
