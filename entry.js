@@ -68,6 +68,7 @@ $(document).ready( function() {
 	$('#thumbStrip li').css('display','inline-block');
 	$('#thumbStrip li').css('height','3em');
 	$('#thumbStrip').css('overflow','scroll');
+	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
 
 	
