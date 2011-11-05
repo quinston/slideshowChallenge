@@ -26,6 +26,7 @@ $(document).ready( function() {
 
 	// given the jquery object thumbnail pointing to a <img>, set the current image to be shown
 	function setBigImage(thumbnail) {
+		$('#bigImage').fadeOut(200);
 		currentImage = thumbnail;
 		var thumbnailURI = thumbnail.attr('src');
  
@@ -39,6 +40,7 @@ $(document).ready( function() {
 		var fullImageURI = thumbnailURI.substr( 0, thumbnailURI.search(/thumb\//i) ) + thumbnailURI.substr( thumbnailURI.search(/thumb\//i) + 'thumb/'.length, thumbnailURI.search(/\/\d+px/i) -  thumbnailURI.search(/thumb\//i) - 'thumb/'.length );
 		//put the full size image into the centre	
 		$('#bigImage').attr('src',fullImageURI); 
+		$('#bigImage').fadeIn(200);
 	}
 	
 	//create a variable of the new element for easy access
