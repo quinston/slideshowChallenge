@@ -68,8 +68,7 @@ $(document).ready( function() {
 	$('#thumbStrip li').css('display','inline-block');
 	$('#thumbStrip li').css('height','3em');
 	$('#thumbStrip').css('overflow','scroll');
-	$('#thumbStrip').css('position','absolute');
-	$('#thumbStrip').css('margin-bottom','0');
+	$('#thumbStrip').css('top','82%');
 
 	
 	//keeps it smack dab in the viewport
