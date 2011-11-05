@@ -65,6 +65,8 @@ $(document).ready( function() {
 		var currentListItem = $('<li></li>');
 		$('#thumbStrip').append(currentListItem);
 		currentListItem.append($(this).clone());
+		// remove the class to allow my own styling
+		currentListIteam.find('.thumbimage').attr('class','');
 	});
 	//style the filmstrip
 	$('#thumbStrip li').css('display','inline-block');
