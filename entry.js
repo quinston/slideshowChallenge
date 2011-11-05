@@ -19,11 +19,11 @@ This program is free software: you can redistribute it and/or modify
 
 */
 
+var $ = jQuery;
+
 $(document).ready( function() {
 	"use strict";
 
-	// attach the external style sheet
-	$('head').append('<link rel="stylesheet" type="text/css" href="entry.css"  />');
 
 	var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
 	// get a list of every thumbnail in the article
@@ -33,7 +33,7 @@ $(document).ready( function() {
 	// given the jquery object thumbnail pointing to a <img>, set the current image to be shown
 	function setBigImage(thumbnail) {
 		// do nothing if the picture doesn't need changing
-		if (!(allImages.index(thumbnail) == allImages.index(currentImage))) {
+		if (allImages.index(thumbnail) != allImages.index(currentImage)) {
 			$('#bigImage').fadeOut(200);
 			currentImage = thumbnail;
 			var thumbnailURI = thumbnail.attr('src');
