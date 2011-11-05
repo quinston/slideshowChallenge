@@ -1,0 +1,41 @@
+#darknessBox {
+	background-color: rgba(0,0,0,0.8);
+	display: block;
+	z-index: 99999999;
+	overflow: visible;
+	position: fixed;
+	top: 0;
+}
+
+#closeText {
+	color: white;
+	float: right;
+}
+
+#bigImage {
+	height: 61%;
+	display: block;
+	position: relative;
+	top: 19%;
+	margin: 0 auto;
+}
+
+#listContainer {
+	overflow: auto;
+	position: absolute;
+	top: 82%;
+	left: 0%;
+	height: 17%;
+	width: 110%;
+}
+
+#thumbStrip li {
+	display: inline-block;
+	border: 0.5em solid 0x555;
+	margin: 0 0.1em;
+}
+
+#thumbStrip li img {
+	height: 6em;
+	width: 6em;
+}
