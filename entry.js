@@ -67,7 +67,8 @@ $(document).ready( function() {
 	//style the filmstrip
 	$('#thumbStrip li').css('display','inline-block');
 	$('#thumbStrip li').css('height','3em');
-	$('#thumbStrip li').css('overflow','scroll');
+	$('#thumbStrip').css('overflow','scroll');
+	$('#thumbStrip').css('vertical-align','baseline');
 
 	
 	//keeps it smack dab in the viewport
