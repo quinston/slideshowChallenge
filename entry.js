@@ -32,7 +32,7 @@ $(document).ready( function() {
 	// given the jquery object thumbnail pointing to a <img>, set the current image to be shown
 	function setBigImage(thumbnail) {
 		// do nothing if the picture doesn't need changing
-		if (!(allImages.index(thumbnail) == allImages.index(currentImage))) {
+		if (allImages.index(thumbnail) != allImages.index(currentImage)) {
 			$('#bigImage').fadeOut(200);
 			currentImage = thumbnail;
 			var thumbnailURI = thumbnail.attr('src');
