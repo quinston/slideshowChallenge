@@ -57,7 +57,7 @@ $(document).ready( function() {
 
 	// get a list of every thumbnail in the article
 	// the second search condition is for some div's that hold multiple images
-	var allImages = $('#bodyContent img.thumbimage, #bodyContent div.thumbimage img');
+	var allImages = $('#bodyContent img.thu	$('#thumbStrip li').css('padding','0.2em 0.2em');mbimage, #bodyContent div.thumbimage img');
 
 
 	// filmstrip of thumbnails for selection
@@ -68,8 +68,9 @@ $(document).ready( function() {
 	});
 	//style the filmstrip
 	$('#thumbStrip li').css('display','inline-block');
-	$('#thumbStrip li').css('height','50%');
-	$('#thumbStrip li').css('padding','0.2em 0.2em');
+	$('#thumbStrip li img').css('height','2em');
+	$('#thumbStrip li img').css('padding','0 0.2em');
+	$('#thumbStrip li img').css('vertical-align','top');	
 	$('#thumbStrip').css('overflow','scroll');
 	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
