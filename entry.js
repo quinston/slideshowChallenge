@@ -57,9 +57,15 @@ $(document).ready( function() {
 
 	// get a list of every thumbnail in the article
 	var allImages = $('#bodyContent .thumbimage');
-	// TODO: Make an unordered list of every thumbnail
-	$('#thumbStrip').append('<li></li>');
-	$('#thumbStrip').append(allImages.eq(0).clone());
+
+	//style the filmstrip
+	$('#thumbStrip li').css('display','inline-block');
+	$('#thumbStrip li').css('height','3em');
+	// filmstrip of thumbnails for selection
+	allImages.each(function() {
+		$('#thumbStrip').append('<li></li>');
+		$('#thumbStrip').append($(this).clone());
+	});
 	
 	//keeps it smack dab in the viewport
 	darkness.css('position', 'fixed');
