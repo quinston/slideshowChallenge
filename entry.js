@@ -57,7 +57,7 @@ $(document).ready( function() {
 
 	// get a list of every thumbnail in the article
 	// the second search condition is for some div's that hold multiple images
-	var allImages = $('#bodyContent img.thu	$('#thumbStrip li').css('padding','0.2em 0.2em');mbimage, #bodyContent div.thumbimage img');
+	var allImages = $('#bodyContent img.thumbimage, #bodyContent div.thumbimage img');
 
 
 	// filmstrip of thumbnails for selection
