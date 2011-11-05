@@ -75,7 +75,8 @@ $(document).ready( function() {
 	$('#thumbStrip').css('overflow','scroll');
 	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
-	$('#thumbStrip').css('height','10%');
+	$('#thumbStrip').css('left','0%');
+	$('#thumbStrip').css('height','17%');
 	$('#thumbStrip').css('width','150%');
 
 	
