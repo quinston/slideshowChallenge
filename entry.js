@@ -68,12 +68,14 @@ $(document).ready( function() {
 	});
 	//style the filmstrip
 	$('#thumbStrip li').css('display','inline-block');
-	$('#thumbStrip li img').css('height','2em');
-	$('#thumbStrip li img').css('padding','0 0.2em');
+	$('#thumbStrip li img').css('height','100%');
 	$('#thumbStrip li img').css('vertical-align','top');	
+	$('#thumbStrip li').css('border','5px 0x555 solid');
+	$('#thumbStrip li').css('margin','0 0.1em');
 	$('#thumbStrip').css('overflow','scroll');
 	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
+	$('#thumbStrip').css('max-height','10%');
 
 	
 	//keeps it smack dab in the viewport
@@ -126,6 +128,7 @@ $(document).ready( function() {
 		e.preventDefault();
 		//find the index of the current thumbnail and increment it and check if it is out of bounds 
 		var currentIndex = allImages.index(currentImage);
+		//if the current image is the last one, go the beginning; otherwise go to the next one
 		currentImage = allImages.eq( (currentIndex + 1 >= allImages.length) ? 0 : currentIndex + 1 );
 		setBigImage(currentImage);
 		return false;
