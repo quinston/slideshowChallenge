@@ -79,7 +79,7 @@ $(document).ready( function() {
 	$('#listContainer').css('top','82%');
 	$('#listContainer').css('left','0%');
 	$('#listContainer').css('height','17%');
-	$('#listContainer').css('width','1000%');
+	$('#listContainer').css('width','110%');
 
 	
 	//keeps it smack dab in the viewport
