@@ -18,27 +18,29 @@ This program is free software: you can redistribute it and/or modify
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-"use strict";
-
-var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
-
-function setBigImage(thumbnail) {
-	currentImage = thumbnail;
-	var thumbnailURI = thumbnail.attr('src');
- 
-	// Breakup of thumbnail URIs:
-	//
-	// AAAAAAAAAAAAAAAAAAAA/thumb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/image.jpg/123px-image.jpg
-	//
-	// where 123px is the thumbnail height. Removing /thumb/ and the /123px... gives us a URI to the fullsize image.
-
-	//get the full size image's URI
-	var fullImageURI = thumbnailURI.substr( 0, thumbnailURI.search(/thumb\//i) ) + thumbnailURI.substr( thumbnailURI.search(/thumb\//i) + 'thumb/'.length, thumbnailURI.search(/\/\d+px/i) -  thumbnailURI.search(/thumb\//i) - 'thumb/'.length );
-	//put the full size image into the centre	
-	$('#bigImage').attr('src',fullImageURI); 
-}
 
 $(document).ready( function() {
+	"use strict";
+
+	var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
+
+	// given the jquery object thumbnail pointing to a <img>, set the current image to be shown
+	function setBigImage(thumbnail) {
+		currentImage = thumbnail;
+		var thumbnailURI = thumbnail.attr('src');
+ 
+		// Breakup of thumbnail URIs:
+		//
+		// AAAAAAAAAAAAAAAAAAAA/thumb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/image.jpg/123px-image.jpg
+		//
+		// where 123px is the thumbnail height. Removing /thumb/ and the /123px... gives us a URI to the fullsize image.
+	
+		//get the full size image's URI
+		var fullImageURI = thumbnailURI.substr( 0, thumbnailURI.search(/thumb\//i) ) + thumbnailURI.substr( thumbnailURI.search(/thumb\//i) + 'thumb/'.length, thumbnailURI.search(/\/\d+px/i) -  thumbnailURI.search(/thumb\//i) - 'thumb/'.length );
+		//put the full size image into the centre	
+		$('#bigImage').attr('src',fullImageURI); 
+	}
+	
 	//create a variable of the new element for easy access
 	var darkness = $('<div id="darknessBox"><a id="closeText">Close</a><img id="bigImage"/><ul id="thumbStrip"></ul></div>');
 	
