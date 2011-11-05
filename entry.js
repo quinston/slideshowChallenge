@@ -66,7 +66,7 @@ $(document).ready( function() {
 		$('#thumbStrip').append(currentListItem);
 		currentListItem.append($(this).clone());
 		// remove the class to allow my own styling
-		currentListIteam.find('.thumbimage').attr('class','');
+		currentListItem.find('.thumbimage').attr('class','');
 	});
 	//style the filmstrip
 	$('#thumbStrip li').css('display','inline-block');
@@ -74,6 +74,7 @@ $(document).ready( function() {
 	$('#thumbStrip li img').css('vertical-align','top');	
 	$('#thumbStrip li').css('border','5px 0x555 solid');
 	$('#thumbStrip li').css('margin','0 0.1em');
+	$('#thumbStrip').css('display','block');
 	$('#thumbStrip').css('overflow','scroll');
 	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
