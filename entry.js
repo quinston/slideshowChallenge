@@ -56,17 +56,20 @@ $(document).ready( function() {
 	darkness.offset({top: 0, left: 0});
 
 	// get a list of every thumbnail in the article
-	var allImages = $('#bodyContent .thumbimage');
+	// the second search condition is for some div's that hold multiple images
+	var allImages = $('#bodyContent img.thumbimage, #bodyContent div.thumbimage img');
 
 
 	// filmstrip of thumbnails for selection
 	allImages.each(function() {
-		$('#thumbStrip').append('<li></li>');
-		$('#thumbStrip').append($(this).clone());
+		var currentListItem = $('<li></li>');
+		$('#thumbStrip').append)(currentListItem);
+		currentListItem.append($(this).clone());
 	});
 	//style the filmstrip
 	$('#thumbStrip li').css('display','inline-block');
-	$('#thumbStrip li').css('height','3em');
+	$('#thumbStrip li').css('height','50%');
+	$('#thumbStrip li').css('padding','0.2em 0.2em');
 	$('#thumbStrip').css('overflow','scroll');
 	$('#thumbStrip').css('position','absolute');
 	$('#thumbStrip').css('top','82%');
