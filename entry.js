@@ -22,6 +22,9 @@ This program is free software: you can redistribute it and/or modify
 $(document).ready( function() {
 	"use strict";
 
+	// attach the external style sheet
+	$('head').append('<link rel="stylesheet" type="text/css" href="entry.css"  />');
+
 	var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
 	// get a list of every thumbnail in the article
 	// the second search condition is for some div's that hold multiple images
@@ -115,6 +118,5 @@ $(document).ready( function() {
 		return false;
 	});
 	
-	$('head').append('<link rel="stylesheet" href="https://raw.github.com/quinston/slideshowChallenge/master/entry.css" type="text/css" />');	
 }); //ends .ready
 
