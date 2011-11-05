@@ -74,7 +74,7 @@ $(document).ready( function() {
 	$('#thumbStrip li img').css('height','3em');
 	$('#thumbStrip li img').css('width','3em');
 	$('#thumbStrip li img').css('vertical-align','top');	
-	$('#thumbStrip li').css('border','5px solid 0x555');
+	$('#thumbStrip li').css('border','0.5em solid 0x555');
 	$('#thumbStrip li').css('margin','0 0.1em');
 	$('#listContainer').css('overflow','auto');
 	$('#listContainer').css('position','absolute');
@@ -82,6 +82,12 @@ $(document).ready( function() {
 	$('#listContainer').css('left','0%');
 	$('#listContainer').css('height','17%');
 	$('#listContainer').css('width','110%');
+	
+	// change the image by clicking on a thumbnail
+	$('#thumbStrip li img').click(function() {
+		var i = $('#thumbStrip img').index($this);
+		setBigImage(allImages.eq(i));
+	});
 
 	
 	//keeps it smack dab in the viewport
