@@ -19,6 +19,8 @@ This program is free software: you can redistribute it and/or modify
 
 */
 
+var $ = jQuery;
+
 $(document).ready( function() {
 	"use strict";
 
