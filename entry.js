@@ -26,21 +26,24 @@ $(document).ready( function() {
 
 	// given the jquery object thumbnail pointing to a <img>, set the current image to be shown
 	function setBigImage(thumbnail) {
-		$('#bigImage').fadeOut(200);
-		currentImage = thumbnail;
-		var thumbnailURI = thumbnail.attr('src');
+		// do nothing if the picture doesn't need changing
+		if (!(allImages.index(thumbnail) == allImages.index(currentImage))) {
+			$('#bigImage').fadeOut(200);
+			currentImage = thumbnail;
+			var thumbnailURI = thumbnail.attr('src');
  
-		// Breakup of thumbnail URIs:
-		//
-		// AAAAAAAAAAAAAAAAAAAA/thumb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/image.jpg/123px-image.jpg
-		//
-		// where 123px is the thumbnail height. Removing /thumb/ and the /123px... gives us a URI to the fullsize image.
+			// Breakup of thumbnail URIs:
+			//
+			// AAAAAAAAAAAAAAAAAAAA/thumb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/image.jpg/123px-image.jpg
+			//
+			// where 123px is the thumbnail height. Removing /thumb/ and the /123px... gives us a URI to the fullsize image.
 	
-		//get the full size image's URI
-		var fullImageURI = thumbnailURI.substr( 0, thumbnailURI.search(/thumb\//i) ) + thumbnailURI.substr( thumbnailURI.search(/thumb\//i) + 'thumb/'.length, thumbnailURI.search(/\/\d+px/i) -  thumbnailURI.search(/thumb\//i) - 'thumb/'.length );
-		//put the full size image into the centre	
-		$('#bigImage').attr('src',fullImageURI); 
-		$('#bigImage').fadeIn(200);
+			//get the full size image's URI
+			var fullImageURI = thumbnailURI.substr( 0, thumbnailURI.search(/thumb\//i) ) + thumbnailURI.substr( thumbnailURI.search(/thumb\//i) + 'thumb/'.length, thumbnailURI.search(/\/\d+px/i) -  thumbnailURI.search(/thumb\//i) - 'thumb/'.length );
+			//put the full size image into the centre	
+			$('#bigImage').attr('src',fullImageURI); 
+			$('#bigImage').fadeIn(200);
+		}
 	}
 	
 	//create a variable of the new element for easy access
