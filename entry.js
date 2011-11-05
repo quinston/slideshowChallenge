@@ -22,7 +22,7 @@ This program is free software: you can redistribute it and/or modify
 $(document).ready( function() {
 	"use strict";
 	
-	$('head').append('<link rel="stylesheet" href="entry.css" type="text/css" />');
+	$('head').append('<link rel="stylesheet" href="https://raw.github.com/quinston/slideshowChallenge/master/entry.css" type="text/css" />');
 
 	var currentImage = null; //this holds the current jquery object pointing to the current thumbnail <img>
 
